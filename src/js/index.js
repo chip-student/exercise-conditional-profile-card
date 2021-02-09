@@ -23,19 +23,55 @@ import "../style/index.scss";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); //print on the console
+  //console.log("These are the current variables: ", variables);
+  //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  if (variables.background == null) {
+    variables.background = "";
+  }
+  if (variables.avatarURL == null) {
+    variables.avatarURL = "";
+  }
+  if (variables.socialMediaPosition == "right") {
+    variables.socialMediaPosition == "right";
+  }
+  if (variables.twitter == null) {
+    variables.twitter = "";
+  }
+  if (variables.github == null) {
+    variables.github = null;
+  }
+  if (variables.linkedin == null) {
+    variables.linkedin = "";
+  }
+  if (variables.instagram == null) {
+    variables.instagram = "";
+  }
+  if (variables.name == null) {
+    variables.name = "";
+  }
+  if (variables.lastname == null) {
+    variables.lastname = "";
+  }
+  if (variables.role == null) {
+    variables.role = "";
+  }
+  if (variables.country == null) {
+    variables.country = " ";
+  }
+  if (variables.city == null) {
+    variables.city = " ";
+  }
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <img src="${variables.avatarURL}" class="photo" /> 
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city} ${variables.country}</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
             <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
